@@ -32,7 +32,7 @@
 						'container' => '',
 						'menu_class' => '',
 						'menu_id' => ''
-					] )
+					] );
 				?>
 				<div class="phone">
 					<a href="tel:+79186687673">&#9742; +7 (918) 668-76-73</a>

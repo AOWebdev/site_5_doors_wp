@@ -3,19 +3,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 text-center">
-				<?php
-					wp_nav_menu( [
+					<?php
+					wp_nav_menu([
 						'theme_location' => 'bottom',
 						'container' => '',
 						'items_wrap' => '%3$s'
-					] )
-				?>
+					])
+					?>
 					<span class="accent-color">&copy; </span> Двери Жовнер, 2021
 				</div>
 			</div>
 		</div>
 	</div>
-  <?php wp_footer(); ?>
-</body>
-
-</html>
+	<?php wp_footer(); ?>
