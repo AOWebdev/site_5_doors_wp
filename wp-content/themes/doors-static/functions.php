@@ -8,6 +8,10 @@
       wp_enqueue_script( 'baguetteBox', get_template_directory_uri().'/assets/js/baguetteBox.min.js', null, null, true );
     } 
     wp_enqueue_style( 'style', get_stylesheet_uri() );
+    if(is_page_template( 'templates/contacts.php' )) {
+      wp_enqueue_script( 'list', get_template_directory_uri().'/assets/js/list.min.js', null, null, true );
+    } 
+    wp_enqueue_style( 'style', get_stylesheet_uri() );
   }
   function add_features() {
     add_theme_support( 'post-thumbnails', array('post'));
