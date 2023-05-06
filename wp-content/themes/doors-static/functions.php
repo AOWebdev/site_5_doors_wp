@@ -11,6 +11,9 @@
     if(is_page_template( 'templates/contacts.php' )) {
       wp_enqueue_script( 'list', get_template_directory_uri().'/assets/js/list.min.js', null, null, true );
     } 
+    if(is_category('doors')) {
+      wp_enqueue_script( 'mixitup', get_template_directory_uri().'/assets/js/mixitup.min.js', null, null, true );
+    }
     wp_enqueue_style( 'style', get_stylesheet_uri() );
   }
   function add_features() {
@@ -28,5 +31,14 @@
   function add_menu() {
     register_nav_menu( 'top', 'Главное меню сайта' );
     register_nav_menu( 'bottom', 'Политика конфеденциальности' );
+  }
+
+  add_filter('navigation_markup_template', 'my_navigation_template', 10, 2);
+  function my_navigation_template( $template, $class ) {
+    return '
+    <nav class="navigation %1$s" role="navigation">
+      <div class="nav-links">%3$s</div>
+    </nav>
+    ';
   }
 ?>
