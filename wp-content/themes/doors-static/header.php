@@ -8,7 +8,7 @@
 	<title>
 		<?php if (is_404()) {
 			echo 'Ошибка 404';
-		} elseif(is_category('doors')) {
+		} elseif (is_category('doors')) {
 			echo single_cat_title();;
 		} else {
 			the_title();
@@ -29,15 +29,28 @@
 					</a>
 				</div>
 				<?php
-					wp_nav_menu( [
-						'theme_location' => 'top',
-						'container' => '',
-						'menu_class' => '',
-						'menu_id' => ''
-					] );
+				wp_nav_menu([
+					'theme_location' => 'top',
+					'container' => '',
+					'menu_class' => '',
+					'menu_id' => ''
+				]);
 				?>
 				<div class="phone">
-					<a href="tel:+79186687673">&#9742; +7 (918) 668-76-73</a>
+					<?php
+					$settings = get_posts([
+						'numberposts' => 1,
+						'category_name' => 'settings',
+						'post_type' => 'post',
+					]);
+					foreach ($settings as $post) {
+						setup_postdata($post);
+					?>
+						<a href="tel:<?= CFS()->get('header_phone_link'); ?>">&#9742; <?= CFS()->get('header_phone'); ?></a>
+					<?php
+					}
+					wp_reset_postdata();
+					?>
 				</div>
 			</div>
 		</div>
